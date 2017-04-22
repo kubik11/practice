@@ -37,4 +37,41 @@ $(function() {
 
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
+
+// SCROLL EVENT
+	$(window).scroll(function(){
+		var $scroll = $(window).scrollTop();
+
+		if($scroll >= 50){
+			$('.top-baner').addClass('fixed');
+		}
+		else{
+			$('.top-baner').removeClass('fixed');
+		}
+});
+//SCROLL EVENT END
+
+	$(document).ready(function(){
+		$('.hamburger').click(function(){
+			$('.hamburger').toggleClass('is-active');
+			$('#nav').toggleClass('ham-open');
+		});
+
+		$(window).resize(function(){
+			var w_th = $(this).width();
+			if(w_th > 1024){
+				$('#nav').removeClass('ham-open');
+				$('.hamburger').removeClass('is-active');
+			}
+			
+		});
+
+	});
+
+//EqualHeights
+
+$('.yourelements').equalHeights();
+
+
+
 });
